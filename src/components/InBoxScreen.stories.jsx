@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import store from '../lib/store';
 import { rest } from 'msw';
 import { MockedState } from './TaskList.stories';
-import InBoxScreen from './inBoxScreen';
+import InBoxScreen from './InBoxScreen';
 import { fireEvent, waitFor, waitForElementToBeRemoved, within } from '@storybook/test';
 
 export default {
