@@ -4,20 +4,6 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { TaskSlice } from '../lib/store';
 
-export default {
-  //全体の設定
-  component: TaskList,
-  title: 'TaskList',
-  tags: ['autodocs'],
-  decorators: [
-    Story => (
-      <div style={{ padding: '3rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
-};
-
 export const MockedState = {
   //Taskから引数を持ってきて展開、書き換え。
   tasks: [
@@ -30,6 +16,20 @@ export const MockedState = {
   ],
   status: 'idle',
   error: null,
+};
+export default {
+  //全体の設定
+  component: TaskList,
+  title: 'TaskList',
+  tags: ['autodocs'],
+  decorators: [
+    Story => (
+      <div style={{ padding: '3rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  excludeStories: /.*MockedState$/,
 };
 
 const MockStore = ({ taskboxState, children }) => (

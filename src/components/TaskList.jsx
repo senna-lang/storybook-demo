@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Task from './Task';
-import PropType from 'prop-types';
 import { updateTaskState } from '../lib/store';
 
 export default function TaskList() {
@@ -40,7 +39,7 @@ export default function TaskList() {
 
   if (status === 'loading') {
     return (
-      <div className="list-items">
+      <div className="list-items" data-testid="loading" key={'loading'}>
         {LoadingRow}
         {LoadingRow}
         {LoadingRow}
@@ -52,7 +51,7 @@ export default function TaskList() {
   }
   if (tasks.length === 0) {
     return (
-      <div className="list-items">
+      <div className="list-items" data-testid="empty">
         <div className="wrapper-message">
           <span className="icon-check"></span>
           <p className="title-message">You have no tasks</p>
@@ -62,7 +61,7 @@ export default function TaskList() {
     );
   }
   return (
-    <div className="list-items">
+    <div className="list-items" data-testid="success">
       {tasks.map(task => (
         <Task
           key={task.id}
@@ -75,10 +74,4 @@ export default function TaskList() {
   );
 }
 
-TaskList.propType = {
-  loading: PropType.bool,
-  tasks: PropType.arrayOf(Task.PropType.task).isRequired,
-};
-TaskList.defaultProps = {
-  loading: false,
-};
+
