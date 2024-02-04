@@ -22,7 +22,7 @@ export default function Task({
           readOnly={true}
           name="title"
           placeholder="title"
-          style={{backgroundColor:'red'}}
+          style={{backgroundColor:'green'}}
         />
       </label>
       {state !== 'TASK_ARCHIVED' && (
