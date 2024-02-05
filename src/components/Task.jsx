@@ -22,7 +22,7 @@ export default function Task({
           readOnly={true}
           name="title"
           placeholder="title"
-          style={{ textOverflow:'ellipsis'}}
+          style={{ textOverflow: 'ellipsis' }}
         />
       </label>
       {state !== 'TASK_ARCHIVED' && (
@@ -31,6 +31,7 @@ export default function Task({
           id={`pinTask-${id}`}
           aria-label={`pinTask-${id}`}
           onClick={() => onPinTask(id)}
+          style={{ backgroundColor: 'red' }}
         >
           <span className="icon-star"></span>
         </button>
